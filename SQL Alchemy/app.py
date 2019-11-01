@@ -120,32 +120,48 @@ def tobs():
     return jsonify(tobs_dict)
 
 @app.route("/api/v1.0/<start>")
-def calc_temps(start_date, end_date):
+def calc_temps(start):
     # Create our session (link) from Python to the DB
     session = Session(engine)
     
-    # Calculate the date 1 year ago from the last data point in the database
-    # get the latestdate from the data and then deduct 365 days from it
-    latestdate = session.query(Measurement.date).order_by(Measurement.date.desc()).first()
-    prev12monthdate = datetime.strptime(latestdate[0], '%Y-%m-%d') - dt.timedelta(days=365)
+    startdate = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
+        filter(Measurement.date >= start).all()
     
-    """TMIN, TAVG, and TMAX for a list of dates.
+    tob_min=[]
+    tob_avg=[]
+    tob_max=[]
+    for date in startdate:
+        tob_min.append(date[0])
+        tob_avg.append(date[1])
+        tob_max.append(date[2])
+    date_dict={'Min':tob_min,'Avg':tob_avg, 'Max':tob_max}
     
-    Args:
-        start_date (string): A date string in the format %Y-%m-%d
-        end_date (string): A date string in the format %Y-%m-%d
-        
-    Returns:
-        TMIN, TAVE, and TMAX
-    """
-    
-    return session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
-        filter(Measurement.date >= start_date).filter(Measurement.date <= end_date).all()
-
     session.close()
 
 
-    return jsonify(prcp_dict)
+    return jsonify(date_dict)
+
+@app.route("/api/v1.0/<start>/<end>")
+def calc_temps2(start, end):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    
+    startdate = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
+        filter(Measurement.date >= start).filter(Measurement.date <= end).all()
+    
+    tob_min=[]
+    tob_avg=[]
+    tob_max=[]
+    for date in startdate:
+        tob_min.append(date[0])
+        tob_avg.append(date[1])
+        tob_max.append(date[2])
+    date_dict={'Min':tob_min,'Avg':tob_avg, 'Max':tob_max}
+    
+    session.close()
+
+
+    return jsonify(date_dict)
 
 if __name__ == '__main__':
     app.run(debug=True)
