@@ -68,3 +68,10 @@
   .nav-item {
     position: relative;
   }
+
+  /* sample graph settings */
+  #sample_graph{
+    width: 50%;
+    height: 50%;
+    float:left;
+  }
