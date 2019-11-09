@@ -9,10 +9,12 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
+
 <body>
+  <!-- Left grid -->
   <div class="container">
       <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Lattitude</a>
+          <a class="navbar-brand" href="index.html">Lattitude</a>
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,29 +42,54 @@
               </li>
             </ul>
           </div>
-        </nav>
-        
-      </div>
-    <h1>Summary: Latitude vs. X</h1>
-    <article>
-      <img src="./Resources/assets/images/Fig1.png" alt="Sample Graph"/>
-      <p>The purpose of this project was to analyze how weather changes as you get closer to the equator. 
-        To acomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500 cities.
-      </p>
+      </nav>
+  </div>
 
-      <p>
-        After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude.
-        Factors we looked at included: temperature, cloudiness, wind speed, and humidity.
-        This site provides the source data and visualizations created as part of the analysis, 
-        as well as explanations and descriptions of any trends and correlations witnessed.
-      </p>
-    </article>
+  <!-- Right grid -->
+  <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+          <h1>Summary: Latitude vs. X</h1>
+          <article>
+            <img src="./Resources/assets/images/Fig1.png" alt="Sample Graph"/>
+            <p>The purpose of this project was to analyze how weather changes as you get closer to the equator. 
+              To acomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500 cities.
+            </p>
 
-    <h2>Visualizations</h2>
-    <img src="./Resources/assets/images/Fig1.png" alt="Latitude vs. Temperature"/>
-    <img src="./Resources/assets/images/Fig2.png" alt="Latitude vs. Humidity"/>
-    <img src="./Resources/assets/images/Fig3.png" alt="Latitude vs. Cloudiness"/>
-    <img src="./Resources/assets/images/Fig4.png" alt="Latitude vs. Wind Speed"/>
+            <p>
+              After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude.
+              Factors we looked at included: temperature, cloudiness, wind speed, and humidity.
+              This site provides the source data and visualizations created as part of the analysis, 
+              as well as explanations and descriptions of any trends and correlations witnessed.
+            </p>
+          </article>
+        </div>
+
+        <div class="col-md-4">
+          <h2>Visualizations</h2>
+          <div class="row">
+              <div class="col-xs-6 col-sm-3 col-md-6">
+                <figure>
+                  <img src="./Resources/assets/images/Fig1.png" alt="Latitude vs. Temperature"/>
+                </figure>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-6">
+                <figure>
+                  <img src="./Resources/assets/images/Fig2.png" alt="Latitude vs. Humidity"/>
+                </figure>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-6">
+                <figure>
+                  <img src="./Resources/assets/images/Fig3.png" alt="Latitude vs. Cloudiness"/>
+                </figure>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-6">
+                <figure>
+                  <img src="./Resources/assets/images/Fig4.png" alt="Latitude vs. Wind Speed"/>
+                </figure>
+              </div>
+        </div>
+    </div>
 
 </body>
 

@@ -15,7 +15,7 @@
   }
 
   /* The dropdown container */
-.dropdown {
+.navbar .nav-item {
     float: right;
   }
   
@@ -63,4 +63,8 @@
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+
+  .nav-item {
+    position: relative;
   }
