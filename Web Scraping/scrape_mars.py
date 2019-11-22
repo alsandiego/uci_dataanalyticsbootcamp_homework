@@ -103,4 +103,7 @@ def scrape():
 
     mars_data["hemisphere_images"] = hemisphere_image_urls
 
+    # Close the browser after scraping
+    browser.quit()
+    
     return mars_data
