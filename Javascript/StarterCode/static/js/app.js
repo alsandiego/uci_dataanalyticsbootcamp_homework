@@ -1,16 +1,14 @@
 // from data.js
 var tableData = data;
 
-// print data from data.js
+// print data from data.js on console
 console.log(data)
 
-// YOUR CODE HERE!
-// Get a reference to the table body
+// Get a reference to the table body and the filter button
 var tbody = d3.select("tbody");
-// Select the button
 var button = d3.select("#filter-btn");
 
-// Appends data to table in index.html
+// Appends data to table in index.html when website loads
 data.forEach((ufoSighting) => {
   var row = tbody.append("tr");
   Object.entries(ufoSighting).forEach(([key, value]) => {
@@ -20,17 +18,15 @@ data.forEach((ufoSighting) => {
 });
 
 // Filter data when Button is pressed
-
-// Complete the click handler for the form
 button.on("click", function() {
 
-    // Select the input element and get the raw HTML node
+    // Select the input element
     var inputElement = d3.select('#datetime')
   
-    // Get the value property of the input element
+    // Get the value property of the input element and print on console
     var inputValue = inputElement.property("value");
     console.log(inputValue)
-    // Use the form input to filter the data by blood type
+    // Use the form input to filter the data by date and print on console
     var matchedSighting = tableData.filter(sighting => sighting.datetime === inputValue)
     console.log(matchedSighting)
   
